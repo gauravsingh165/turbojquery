@@ -4,13 +4,34 @@
     <title>Turboapp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <%# <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css"> %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= Time.zone.now %>
+  <body style="background-color: #ebc1be">
+    <%= render "shared/navbar" %>
+      <button id="bt">Toggle</button> 
+    <%# <%= Time.zone.now %> 
     <%= yield %>
   </body>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("button#bt").click(function() {
+        $("#panel").toggle(2000);
+    });
+
+    $("P").click(function(){
+        $(this).fadeToggle(1000);
+      
+      });
+    $("#flip").click(function(){
+    $("#panel").slideToggle("slow");
+  });
+    });
+  </script>
 </html>
