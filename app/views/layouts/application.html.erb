@@ -12,11 +12,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body style="background-color: #ebc1be">
+  <body style="background-color: #dadde3">
     <%= render "shared/navbar" %>
       <button id="bt">Toggle</button> 
     <%# <%= Time.zone.now %> 
     <%= yield %>
+    <%= render "shared/footer"%>
   </body>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script>
@@ -25,13 +26,51 @@
         $("#panel").toggle(2000);
     });
 
-    $("P").click(function(){
-        $(this).fadeToggle(1000);
-      
-      });
-    $("#flip").click(function(){
-    $("#panel").slideToggle("slow");
-  });
+    $("p").click(function(){
+      $(this).fadeToggle(2000);
     });
+
+    $("#flip").click(function(){
+      $("#panel").slideToggle(2000, function(){
+        console.log("slide sucessful")
+        // alert("Slide is Done")
+      });
+    });
+    $("#stop").click(function(){
+      $("#panel").stop();
+    });
+      $("button").click(function(){
+    $(".p1").css("color", "blue").slideUp(1000).slideDown(2000);
+  });
+  var display = $('#display');
+    display.on('keydown', function(event){
+      if(event.key === 'Enter'){
+        try {
+            display.val(eval(display.val()));
+        } catch (error) {
+            display.val('Error');
+        }
+      }
+    });
+
+    $("#div1").on({
+      "click" : function(){
+        $("#div1").css("background","blue");
+      },
+      "mouseout" : function(){
+        $("#div1").css("color","red");
+      },
+      "mouseover": function(){
+        $("#div1").css("background","green")
+      }
+    });
+
+    $("#perpend").click(function(){
+      $("#div1").prepend("<h1>this is heading</h1>")
+    });
+    $("#append").click(function(){
+      $("#div1").append("<h3>this is append<h3>")
+    });
+  });
   </script>
 </html>

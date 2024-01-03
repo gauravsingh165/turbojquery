@@ -1,22 +1,32 @@
 <p id="notice">
   <%= notice %>
 </p>
-<div id="flip">Click to slide the panel down or up</div>
-  <div id="panel">
-    <div class="container">
-    <h1>
-      Messages
-      <span id="message_counter">
-        <%= Message.count %>
-      </span>
-    </h1>
 
-    <div id="new_message">
-      <%= render partial: "messages/form", locals: { message: Message.new } %>
-    </div>
+ <div id="calculator">
+        <input type="text" id="display" placeholder="Enter">
+  </div>
 
-    <div id="messages">
-      <%= render @messages %>
+<%# <button id="stop">Stop sliding</button> %>
+<div class="p1">
+  <div id="flip">Click to slide the panel down or up</div>
+    <div id="panel">
+      <button>Click me</button>
+      <div class="container">
+        <h1>
+          Messages
+          <span id="message_counter">
+            <%= Message.count %>
+          </span>
+        </h1>
+
+        <div id="new_message">
+          <%= render partial: "messages/form", locals: { message: Message.new } %>
+        </div>
+        <hr>
+        <div id="messages">
+          <%= render @messages %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -25,7 +35,7 @@
   padding: 5px;
   text-align: center;
   background-color: #e5eecc;
-  border: solid 1px #c3c3c3;
+  border: solid 2px #c3c3c3;
 }
 
 #panel {
